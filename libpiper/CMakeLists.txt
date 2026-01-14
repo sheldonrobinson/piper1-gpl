@@ -15,7 +15,7 @@ if(WIN32)
     # Special handling for Windows
     set(ESPEAKNG_STATIC_LIB ${ESPEAKNG_INSTALL_DIR}/lib/espeak-ng.lib)
     if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-        set(UCD_STATIC_LIB ${ESPEAKNG_BUILD_DIR}/src/espeak_ng_external-build/src/ucd-tools/${CMAKE_BUILD_TYPE}/ucd.lib)
+        set(UCD_STATIC_LIB ${ESPEAKNG_BUILD_DIR}/src/espeak_ng_external-build/src/ucd-tools/$<CONFIG>/ucd.lib)
     else()
         set(UCD_STATIC_LIB ${ESPEAKNG_BUILD_DIR}/src/espeak_ng_external-build/src/ucd-tools/ucd.lib)
     endif()
