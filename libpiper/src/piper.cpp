@@ -95,9 +95,14 @@ struct piper_synthesizer *piper_create(const char *model_path,
     synth->session_options.DisableCpuMemArena();
     synth->session_options.DisableMemPattern();
     synth->session_options.DisableProfiling();
-
+#if defined(_WIN32)
+     std::string_view model_path_strv(model_path);
+     auto ort_model_path = std::wstring(model_path_strv.begin(), model_path_strv.end()).c_str();
+#else
+     auto ort_model_path = model_path;
+#endif
     synth->session = std::make_unique<Ort::Session>(
-        Ort::Session(ort_env, model_path, synth->session_options));
+        Ort::Session(ort_env, ort_model_path, synth->session_options));
 
     return synth;
 }
