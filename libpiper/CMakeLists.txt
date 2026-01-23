@@ -120,6 +120,12 @@ add_library(piper SHARED
     ${CMAKE_CURRENT_SOURCE_DIR}/src/piper.cpp
 )
 
+if(WIN32)
+    set_target_properties(piper PROPERTIES
+      WINDOWS_EXPORT_ALL_SYMBOLS TRUE
+    )
+endif()
+
 add_dependencies(piper espeak_ng_external)
 target_include_directories(piper PUBLIC
     ${ESPEAKNG_INSTALL_DIR}/include
