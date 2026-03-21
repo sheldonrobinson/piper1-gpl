@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1
+
+- Add missing wheels
+
 ## 1.4.0
 
 - Add Chinese phonemizer based on [g2pW](https://github.com/GitYCC/g2pW/)
@@ -10,6 +14,7 @@
 - Add `--data.dataset_type 'phoneme_ids'` to train with pre-generated phoneme ids
     - Use `--data.num_symbols <N>` to set number of phonemes
     - Use `--data.phonemes_path "/path/to/phonemes.json"` for phoneme/id map
+- Add `--output-dir-naming` option with `timestamp` (default) and `text`
 
 ## 1.3.1
 
